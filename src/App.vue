@@ -20,8 +20,11 @@
           width="100"
         />
       </div>
-
-      <v-spacer></v-spacer>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-title>Check data: </v-app-bar-title>
+      <v-btn :to="{name: 'Home'}" >Home</v-btn>
+      <v-btn :to="{name: 'Data'}" >Data</v-btn>
+      <v-btn :to="{name: 'About'}">About</v-btn>
     </v-app-bar>
 
     <v-main>
