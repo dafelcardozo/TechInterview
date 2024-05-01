@@ -41,18 +41,9 @@ export default {
   },
   filters: {
   },
-  mounted () {
-    axios
-      .get('https://random-data-api.com/api/v2/users?size=10')
-      .then(response => {
-        console.info(response.data);
-        this.persons = response.data;        
-      })
-      .catch(error => {
-        console.log(error)
-        this.errored = true
-      })
-      .finally(() => this.loading = false)
+  async mounted () {
+    const {data}  = await axios.get('https://random-data-api.com/api/v2/users?size=10');
+    this.persons = data;    
   }
 };
 </script>
