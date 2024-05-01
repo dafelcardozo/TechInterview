@@ -1,11 +1,19 @@
 <template>
-  <v-container>
-    <v-row>
+  <v-container fluid fill-height>
+  <v-layout child-flex>
         <v-card>
+          <v-text-field
+        v-model="search"
+        label="Search"
+        prepend-inner-icon="mdi-magnify"
+        variant="outlined"
+        hide-details
+        single-line
+      ></v-text-field>
             <v-card-title>
-                Data Table
+              People I used to know...
             </v-card-title>
-              <v-data-table :items="persons" :headers="headers">
+              <v-data-table :items="persons" :headers="headers" :search="search" >
                 <template v-slot:item.avatar="{ item }">
                   <div class="p-2">
                     <v-img :src="item.avatar" :alt="item.name" height="60px" width="50px"></v-img>
@@ -22,7 +30,7 @@
       below with headers and make it searchable. Also, expand the table to full width of the container. Let Bob know when complete.</p></v-card-subtitle -->
           
     </v-card>
-    </v-row>
+  </v-layout>
   </v-container>
 </template>
 
@@ -37,9 +45,11 @@ export default {
       headers: [
         {text: "Avatar", sortable:false, value:"avatar"},
         { text: "Name", align: "start", sortable: true, value: "first_name" },
-        { text: "Last name",  sortable: true, value: "last_name" },      
+        { text: "Last name",  sortable: true, value: "last_name" },
+        { text: "Email",  sortable: true, value: "email" },    
         {text:"Location", sortable:false, value:"address"}
       ],
+      search: ""
     }
   },
   filters: {
