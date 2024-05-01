@@ -1,10 +1,16 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" temporary app>
-      <v-list  nav>
-          <v-list-item link title="Home" :to="{name: 'Home'}" value="home">Home</v-list-item>
-          <v-list-item link title="Data" :to="{name: 'Data'}" value="data">Data</v-list-item>
-          <v-list-item link title="About" :to="{name: 'About'}" value="about">About</v-list-item>
+      <v-list density="compact" nav>
+          <v-list-item prepend-icon="mdi-home" link title="Home" :to="{name: 'Home'}" value="home">
+            <v-icon class="mdi mdi-home" end /> <div>Home</div>
+          </v-list-item>
+          <v-list-item link title="Data" :to="{name: 'Data'}" value="data">
+            <v-icon class="mdi mdi-database" end />Data
+          </v-list-item>
+          <v-list-item link title="About" :to="{name: 'About'}" value="about"> 
+            <v-icon class="mdi mdi-help" end />About
+          </v-list-item>
       </v-list>
       </v-navigation-drawer>
     <v-app-bar app color="primary" dark clipped-left >
@@ -30,9 +36,15 @@
 
         </div>
         <v-spacer></v-spacer>
-          <v-btn :to="{name: 'Home'}" variant="text" color="primary">Home</v-btn>
-          <v-btn :to="{name: 'Data'}" variant="text" color="primary">Data</v-btn>
-          <v-btn :to="{name: 'About'}" variant="text" color="primary">About</v-btn>
+          <v-btn :to="{name: 'Home'}" variant="text" color="primary">
+            <v-icon class="mdi mdi-home" end />
+          </v-btn>
+          <v-btn :to="{name: 'Data'}" variant="text" color="primary">
+            <v-icon class="mdi mdi-database" end />
+          </v-btn>
+          <v-btn :to="{name: 'About'}" variant="text" color="primary" >
+            <v-icon class="mdi mdi-help" end />
+          </v-btn>
       </v-app-bar>
     <v-main>
       <v-container>
@@ -44,29 +56,14 @@
 </template>
 
 <script>
+import '@mdi/font/css/materialdesignicons.css';
+
 export default {
   name: "App",
   data: () => ({
       drawer: false,
       group: null,
-      items: [
-        {
-          title: 'Foo',
-          value: 'foo',
-        },
-        {
-          title: 'Bar',
-          value: 'bar',
-        },
-        {
-          title: 'Fizz',
-          value: 'fizz',
-        },
-        {
-          title: 'Buzz',
-          value: 'buzz',
-        },
-      ],
+      
     }),
 
     watch: {
