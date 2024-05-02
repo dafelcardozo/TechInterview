@@ -1,17 +1,12 @@
 <template>
   <v-container fluid fill-height>
   <v-layout child-flex>
-        <v-card>
-          <v-text-field
-        v-model="search"
-        label="Search"
-        prepend-inner-icon="mdi-magnify"
-        variant="outlined"
-        hide-details
-        single-line
-      ></v-text-field>
+        <v-card v-card-title="nana">
+          <template v-slot:text>
+          </template>
             <v-card-title>
-              People I used to know...
+              <v-text-field v-model="search" label="Search" 
+              prepend-inner-icon="mdi-magnify" variant="outlined" hide-details single-line ></v-text-field>
             </v-card-title>
               <v-data-table :items="persons" :headers="headers" :search="search" >
                 <template v-slot:item.avatar="{ item }">
